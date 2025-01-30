@@ -1,0 +1,32 @@
+body{
+    background-color: lavender;
+
+  
+    
+
+    h1{
+        color: fuchsia;
+       padding-left: 40%;
+       font-size: 100px;
+       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+    }
+
+    h3{
+        color: indigo;
+        padding-left: 50%;
+       
+    }
+    
+    h4{
+        background:  rgb(3, 128, 100);
+        color: rgb(0, 191, 255);
+    }
+
+}
+
+
+
+#Ash_Ketchum{
+    padding-left: 80%;
+}
