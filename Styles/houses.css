@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+
+
+ 
+}
+
+#cookie-banner{
+  position: fixed;
+  color: white;
+  text-align: center;
+  bottom: 10px;
+  border: 1px solid red;
+  width: 100%;
+}
+
+
