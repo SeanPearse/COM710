@@ -1,0 +1,14 @@
+body{
+    background: lavender;
+}
+.container{
+align-items: center;
+background-color: blueviolet;
+padding: 20px;
+margin: 20vh auto 0 auto;
+width: 500px;
+}
+
+h1{
+    color: aliceblue;
+}
