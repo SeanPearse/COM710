@@ -1,3 +1,17 @@
 body{
-    background-color: #F5F5F5;
+    background-color: #fffce9;
+}
+
+#Banner-Box{
+    padding: 25px;
+  background: #cde6a9;
+  width: 100%;
+ height: 35vh;
+}
+#Search-Bar{
+    text-align: center;
+    padding-bottom: 200px;
+}
+#LogoImage{
+    padding: 0;
 }
