@@ -9,9 +9,10 @@ body{
  height: 35vh;
 }
 #Search-Bar{
-    text-align: center;
-    padding-bottom: 200px;
+
 }
+
 #LogoImage{
-    padding: 0;
+   position: absolute;
+   top: 50px;
 }
