@@ -9,10 +9,14 @@ body{
  height: 35vh;
 }
 #Search-Bar{
-
+    position: absolute;
+    left: 40%;
 }
 
 #LogoImage{
    position: absolute;
    top: 50px;
+}
+.ResizedTextBox{
+    width: 500px; height: 20px
 }
