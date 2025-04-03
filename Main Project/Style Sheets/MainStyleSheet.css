@@ -16,7 +16,44 @@ body{
 #LogoImage{
    position: absolute;
    top: 50px;
+  
 }
+
+.MainImageScale{
+    border-radius: 50%;
+}
+
 .ResizedTextBox{
     width: 500px; height: 20px
+}
+#ProfileImage{
+    position: absolute;
+    left: 85%;
+    top: 20px;
+    
+}
+.ProfileImageScale{
+    border-radius: 50%;
+}
+#ProfileButton{
+    border-radius: 50%;
+}
+button{
+    cursor: pointer;
+}
+.dark-mode{
+    background-color: black;
+    color: white;
+    #Banner-Box{
+        background:blue;
+    }
+    #Moon{
+        content: url(../Asset\ Folder/58f9fd580ed2bdaf7c128327.png);
+        height: 40px;
+        width: 40px;
+    }
+}
+#DarkMode{
+    position: absolute;
+    left: 75%;
 }

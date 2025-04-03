@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet"href="../Style Sheets\MainStyleSheet.css">
+    <script src="../Java Files/MainJavaFile.js"></script>
 </head>
 <body>
 <div id="Banner-Box">
@@ -12,7 +13,13 @@
         <input type="text" class="ResizedTextBox" placeholder="Search...">
     </div>
     <div id="LogoImage">
-        <td><a href="MainPage.html"><img src="../Asset Folder/Main Logo Website.png" height="200px"></a></td>
+        <td><a href="MainPage.html"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" height="200px"></a></td>
+    </div>
+    <div id="ProfileImage">
+       <button id="ProfileButton"><img class="ProfileImageScale" src="../Asset Folder/blank-profile-picture-973460_1280.png" height="50px" width="50px"></button>
+    </div>
+    <div id="DarkMode">
+        <button id="DarkModeButton" onclick="darkMode()"><div id ="Moon"><img src="../Asset Folder/5c6536e03ce41c0ef9f4bccc.png" height="40px" width="40px"></div></button>
     </div>
     </div>
 </body>
