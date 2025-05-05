@@ -62,7 +62,15 @@ body{
 .search-button:hover {
     background-color: rgb(3, 221, 3);
 }
-
+#Error{
+    text-align: center;
+    font-family: 'Poppins' ,sans-serif;
+    font-size: 2rem;
+}
+#Error h2{
+    font-size: 9rem;
+    font-family: 'Poppins' ,sans-serif;
+}
 
 
 
@@ -239,6 +247,83 @@ input:checked ~ .slide{
    margin-top: 100;
  }
 
+#Footer-Text{
+    position: absolute;
+    margin-top: 15%;
+}
+
+@media screen and (min-width: 998px) {
+
+
+.recipes-container{
+    display: grid;
+    gap: 2rem 1rem;
+    text-align: center;
+    grid-template-columns: 200px 1fr;
+}
+.tags-container{
+    order: 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+}
+.tags-container h4{
+   font-family:'Poppins' ,sans-serif;
+   font-weight: bolder;
+}
+.recipes-list{
+    display: grid;
+    gap: 2rem 1rem;
+    padding-bottom: 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.tags-container h4{
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.tags-list{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.tags-list a{
+    text-transform: capitalize;
+    display: block;
+    font-family: 'Poppins' ,sans-serif; ;
+    padding-bottom: 10px;
+}
+.Recipe{
+    display: block;
+}
+.recipe-img{
+    height: 15rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    margin-top: 50px;
+}
+.Recipe h5{
+    margin-bottom: 0;
+    line-height: 1;
+    color: black;
+    font-family: 'Poppins' ,sans-serif;
+    font-size: 20px;
+}
+.Recipe p{
+    margin-bottom: 0;
+    line-height: 1;
+    margin-top: 0.5rem;
+    color: black;
+    font-family: 'Poppins' ,sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+}
+.page h4{
+    font-size: 2rem;
+    font-family: 'Poppins' ,sans-serif;
+    text-align: center;
+}
 
 
 
@@ -253,6 +338,10 @@ input:checked ~ .slide{
         width: 90%;  /* Take up 90% of the screen width */
 
     }
+    .tags-container h4{
+        font-family:'Poppins' ,sans-serif;
+        font-weight: bolder;
+     }
 
     .search-input {
         font-size: 14px;  /* Adjust font size for mobile */
@@ -292,4 +381,57 @@ input:checked ~ .slide{
    .slide{
    top: 160px;
    }
+   .recipes-container{
+    display: grid;
+    gap: 2rem 1rem;
+    text-align: center;
+}
+.tags-container{
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+}
+.recipes-list{
+    display: grid;
+    gap: 2rem 1rem;
+    padding-bottom: 3rem;
+}
+.tags-container h4{
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.tags-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.tags-list a{
+    text-transform: capitalize;
+    display: block;
+    font-family: 'Poppins' ,sans-serif; ;
+    padding-bottom: 10px;
+}
+.Recipe{
+    display: block;
+}
+.recipe-img{
+    height: 15rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    margin-top: 50px;
+}
+.Recipe h5{
+    margin-bottom: 0;
+    line-height: 1;
+    color: black;
+    font-family: 'Poppins' ,sans-serif;
+}
+.Recipe p{
+    margin-bottom: 0;
+    line-height: 1;
+    margin-top: 0.5rem;
+    color: black;
+    font-family: 'Poppins' ,sans-serif;
+}
+
 }
