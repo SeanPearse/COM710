@@ -72,7 +72,9 @@ body{
     font-family: 'Poppins' ,sans-serif;
 }
 
-
+#DarkModeButton{
+    border-radius: 50%;
+}
 
 .MainImageScale{
     border-radius: 50%;
@@ -122,15 +124,37 @@ button{
     .search-button:hover{
         background-color: rgb(92, 92, 212); ;
     }
+    .search-input{
+        background: rgb(92, 92, 92);
+        color: white;
+    }
     #Footer{
         background-color:rgb(92, 92, 212); ;
     }
+    .Recipe p{
+    color: white;
+    }
+    .Recipe h5{
+        color: white;
+    }
+    .tags-list a{
+        color: lightblue;
+    }
+    .form-box button{
+        background: rgb(45, 45, 236);
+    }
+    .form-box input{
+        background: rgb(92, 92, 92);
+        color: white;
+    }
+
   
 }
 #DarkMode{
     position: absolute;
     left: 80%;
     margin-top: -85px;
+    border-radius: 50%;
 }
 .slide{
     margin-left: -15px;
@@ -317,11 +341,66 @@ input:checked ~ .slide{
     color: black;
     font-family: 'Poppins' ,sans-serif;
 }
+
+}
+
 a{
     text-decoration: none;
 }
 
+#Login-Img{
+    margin-top: 70px;
 }
+
+#Login-Img h2{
+    font-size: 40px;
+    font-family: 'Poppins' ,sans-serif;
+}
+
+#login-container{
+    margin: 0 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.form-box{
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Poppins' ,sans-serif;
+    display: none;
+}
+.form-box.active{
+    display: block;
+}
+
+.form-box input{
+    border: none;
+    outline: none;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.form-box button{
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    padding: 12px;
+    font-family: 'Poppins' ,sans-serif;
+}
+
+.login-img{
+    border-radius: 50%;
+}
+
 .page h4{
     font-size: 2rem;
     font-family: 'Poppins' ,sans-serif;

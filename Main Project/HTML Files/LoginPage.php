@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipe</title>
+        <title>Login</title>
         <link rel="stylesheet"href="../Style Sheets\MainStyleSheet.css">
         <script src="../Java Files/MainJavaFile.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -44,82 +44,36 @@
                 </div>
             </label>
         </div>
+<div id="login-container">
+    <div class="form-box active" id="login-form">
+        <form action="">
+        <div id="Login-Img">
+      <img src="../Asset Folder/blank-profile-picture-973460_1280.png" height="300px"
+      img class="login-img">
+      <h2>Login</h2>
+      </div> 
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" name="login">Login</button>
+      <p>Don't have an account? <a href="#" onclick="showForm('register-form')">Register</a></p>
+    </form>
+    </div>
 
-        <div class="recipe-page">
-            <section class="recipe-hero"><h2>Carne Asada</h2><img src="../Asset Folder/Authentic-Carne-Asada_Square-1.jpg" class="img recipe-hero-img" alt="beef"/>
-            <article>
-                <p>This is a description for a recipe.</p>
-                <div class="recipe-icons">
-                <article>
-                    <i class="fas fa-clock"></i>
-                    <h5>Prep Time</h5>
-                    <p>30 min.</p>
-                </article>
-
-                <article>
-                    <i class="far fa-clock"></i>
-                    <h5>Cook Time</h5>
-                    <p>30 min.</p>
-                </article>
-
-                <article>
-                    <i class="fas fa-user-friends"></i>
-                    <h5>Servings</h5>
-                    <p>4-5</p>
-                </article>
-                </div>
-                
-                <div class="recipe-tags">
-                    Tags : <a href="./TagTemplate.html">Beef</a>
-                    <a href="./TagTemplate.html">Food</a>
-                </div>
-
-            </article>
-            </section>
-            <section class="recipe-content">
-                <article>
-                    <h4>Instructions</h4>
-                    <div class="single-instruction">
-                        <header>
-                            <p>Step 1</p>
-                            <div></div>
-                        </header>
-                        <p>This is the first instruction for the recipe</p>
-                    </div>
-                    <div class="single-instruction">
-                        <header>
-                            <p>Step 2</p>
-                            <div></div>
-                        </header>
-                        <p>This is the second instruction for the recipe</p>
-                    </div>
-                    <div class="single-instruction">
-                        <header>
-                            <p>Step 3</p>
-                            <div></div>
-                        </header>
-                        <p>This is the 3rd instruction for the recipe</p>
-                    </div>
-                </article>
-                <article class="ingredients-column">
-                    <div>
-                        <h4>Ingredients</h4>
-                        <p class="single-ingredient">1 whole cow</p>
-                        <p class="single-ingredient">Salt</p>
-                        <p class="single-ingredient">Black Powder</p>
-                    </div>
-                    
-                    <div>
-                        <h4>Tools</h4>
-                        <p class="single-tool">A Knife</p>
-                        <p class="single-tool">Fire</p>
-                        <p class="single-tool">Plate</p>
-                    </div>
-
-                </article>
-            </section>
-        </div>
-
+    <div class="form-box" id="register-form">
+        <form action="">
+        <div id="Login-Img">
+      <img src="../Asset Folder/blank-profile-picture-973460_1280.png" height="300px"
+      img class="login-img">
+      <h2>Register</h2>
+      </div> 
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" name="login">Register</button>
+      <p>Already have an account? <a href="#" onclick="showForm('login-form')>Login</a></p>
+     </form>
+    </div>
+ </div>
 
 
         <div id="Footer">
