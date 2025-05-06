@@ -62,15 +62,6 @@ body{
 .search-button:hover {
     background-color: rgb(3, 221, 3);
 }
-#Error{
-    text-align: center;
-    font-family: 'Poppins' ,sans-serif;
-    font-size: 2rem;
-}
-#Error h2{
-    font-size: 9rem;
-    font-family: 'Poppins' ,sans-serif;
-}
 
 #DarkModeButton{
     border-radius: 50%;
@@ -262,18 +253,20 @@ input:checked ~ .slide{
     background: #cde6a9;
     width: 100%;
     height: 35vh;
-    z-index: -1;
+    z-index: 1;
     transition: 0.5s ease;
 }
 #LogoImageFooter{
+    margin-top: 10px;
     position: absolute;
     z-index: 1;
-   margin-top: 100;
+
  }
 
 #Footer-Text{
     position: absolute;
-    margin-top: 15%;
+    margin-top: 300px;
+    font-family: 'Poppins' ,sans-serif;
 }
 
 @media screen and (min-width: 998px) {
@@ -307,6 +300,7 @@ input:checked ~ .slide{
 .tags-container h4{
     margin-bottom: 0.5rem;
     font-weight: 500;
+    font-family: 'Poppins' ,sans-serif;
 }
 .tags-list{
     display: grid;
@@ -486,10 +480,113 @@ a{
     text-transform: capitalize;
 }
 
+.error-message {
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+.Logout{
+    background: green;
+    border-radius: 5px;
+    background-size: contain;
+    padding: 0.05rem;
+    margin: 30%;
+    margin-top: 50px;
 
+}
+.Logout h2{
+    text-align: center;
+}
 
+.header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    height: 100%;
+}
+.header .wrapper h1, .header .wrapper a {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Poppins' ,sans-serif;
+}
+.header .wrapper .menu {
+    display: flex;
+    align-items: center;
+}
+.header .wrapper .menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 12px;
+    margin: 0 3px;
+    text-decoration: none;
+    color: #dddfe2;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
 
+.header .wrapper .menu a:last-child {
+    margin-right: 0;
+}
+
+.content {
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.content .page-title {
+    display: flex;
+    align-items: center;
+    padding: 25px 0 0 0;
+    margin-left: 38%;
+    
+}
+.content .page-title h2 {
+    padding: 0 0 7px 0;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Poppins' ,sans-serif;
+
+}
+.content .page-title p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: 'Poppins' ,sans-serif;
+}
+.content .block {
+    box-shadow: 0px 0px 7px 1px rgba(45, 57, 68, 0.05);
+    margin: 25px 0;
+    padding: 25px;
+    border-radius: 5px;
+}
+.content .block p {
+    padding: 7px;
+    margin: 0;
+    font-family: 'Poppins' ,sans-serif;
+}
+.content .profile-detail {
+    display: flex;
+    flex-flow: column;
+    font-size: 18px;
+    padding: 5px 0;
+    font-family: 'Poppins' ,sans-serif;
+}
+.content .profile-detail strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-family: 'Poppins' ,sans-serif;
+}
 
 
 @media (max-width: 600px) {
@@ -592,6 +689,12 @@ a{
     margin-top: 0.5rem;
     color: black;
     font-family: 'Poppins' ,sans-serif;
+}
+.content .page-title {
+    margin-left: 20%;
+}
+.content .block {
+    margin-right: 35%;
 }
 
 }

@@ -1,9 +1,39 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['account_loggedin'])) {
+    header('Location: LoginPage.php');
+    exit;
+}
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'phplogin';
+// Try and connect using the info above
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+// Ensure there are no connection errors
+if (mysqli_connect_errno()) {
+    exit('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
+// We don't have the email or registered info stored in sessions so instead we can get the results from the database
+$stmt = $con->prepare('SELECT email, registered FROM accounts WHERE id = ?');
+// In this case, we can use the account ID to get the account info
+$stmt->bind_param('i', $_SESSION['account_id']);
+$stmt->execute();
+$stmt->bind_result($email, $registered);
+$stmt->fetch();
+$stmt->close();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipe</title>
+        <title>Profile</title>
         <link rel="stylesheet"href="../Style Sheets\MainStyleSheet.css">
         <script src="../Java Files/MainJavaFile.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -45,82 +75,50 @@
             </label>
         </div>
 
-        <div class="recipe-page">
-            <section class="recipe-hero"><h2>Carne Asada</h2><img src="../Asset Folder/Authentic-Carne-Asada_Square-1.jpg" class="img recipe-hero-img" alt="beef"/>
-            <article>
-                <p>This is a description for a recipe.</p>
-                <div class="recipe-icons">
-                <article>
-                    <i class="fas fa-clock"></i>
-                    <h5>Prep Time</h5>
-                    <p>30 min.</p>
-                </article>
+        <div class="content">
 
-                <article>
-                    <i class="far fa-clock"></i>
-                    <h5>Cook Time</h5>
-                    <p>30 min.</p>
-                </article>
 
-                <article>
-                    <i class="fas fa-user-friends"></i>
-                    <h5>Servings</h5>
-                    <p>4-5</p>
-                </article>
+<div class="page-title">
+                <div class="wrap">
+                    <h2>Profile</h2>
+                    <p>View your profile details below.</p>
                 </div>
-                
-                <div class="recipe-tags">
-                    Tags : <a href="./TagTemplate.html">Beef</a>
-                    <a href="./TagTemplate.html">Food</a>
+            </div>
+
+            <div class="block">
+
+                <div class="profile-detail">
+                    <strong>Username</strong>
+                    <?=htmlspecialchars($_SESSION['account_name'])?>
                 </div>
 
-            </article>
-            </section>
-            <section class="recipe-content">
-                <article>
-                    <h4>Instructions</h4>
-                    <div class="single-instruction">
-                        <header>
-                            <p>Step 1</p>
-                            <div></div>
-                        </header>
-                        <p>This is the first instruction for the recipe</p>
-                    </div>
-                    <div class="single-instruction">
-                        <header>
-                            <p>Step 2</p>
-                            <div></div>
-                        </header>
-                        <p>This is the second instruction for the recipe</p>
-                    </div>
-                    <div class="single-instruction">
-                        <header>
-                            <p>Step 3</p>
-                            <div></div>
-                        </header>
-                        <p>This is the 3rd instruction for the recipe</p>
-                    </div>
-                </article>
-                <article class="ingredients-column">
-                    <div>
-                        <h4>Ingredients</h4>
-                        <p class="single-ingredient">1 whole cow</p>
-                        <p class="single-ingredient">Salt</p>
-                        <p class="single-ingredient">Black Powder</p>
-                    </div>
-                    
-                    <div>
-                        <h4>Tools</h4>
-                        <p class="single-tool">A Knife</p>
-                        <p class="single-tool">Fire</p>
-                        <p class="single-tool">Plate</p>
-                    </div>
+                <div class="profile-detail">
+                    <strong>Email</strong>
+                    <?=htmlspecialchars($email)?>
+                </div>
 
-                </article>
-            </section>
-        </div>
-    </body>
-    <Footer>
+                <div class="profile-detail">
+                    <strong>Registered</strong>
+                    <?=htmlspecialchars($registered)?>
+                </div>
+
+            </div>
+
+                            
+
+    
+</div>
+
+
+<div class="Logout"><a href="Logout.php"><h2>Log out</h2></a>
+</div>
+
+
+
+
+
+        </body>
+<Footer>
         <div id="Footer">
             <p>
             <div id="LogoImageFooter">
