@@ -57,7 +57,7 @@ function isActiveForm($formName, $activeForm) {
                 <div class="slide">
                    <h1>Menu</h1>
                    <ul>
-                        <li><a href="#"><i class="fas fa-tv"></i>Home</a></li>
+                        <li><a href="#"><a href="./MainPage.html"><i class="fas fa-tv"></i>Home</a></a></li>
                         <li><a href="#"><i class="fas fa-heart"></i>Favourites</a></li>
                         <li><a href="#"><i class="fas fa-search"></i>Recipes</a></li>
                         <li><a href="#"><i class="fas fa-comments"></i>Comments</a></li>

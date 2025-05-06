@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Error</title>
+        <title>Recipe</title>
         <link rel="stylesheet"href="../Style Sheets\MainStyleSheet.css">
         <script src="../Java Files/MainJavaFile.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -44,56 +44,81 @@
                 </div>
             </label>
         </div>
-        
-        <main class="page">
-            <div>
-                <h4>
-                    Beef
-                </h4>
-            </div>
-        </main>
 
-        <div class="recipes-list">
+        <div class="recipe-page">
+            <section class="recipe-hero"><h2>Bannana Pancakes</h2><img src="../Asset Folder/banana_pancakes_0-1328410.jpg" class="img recipe-hero-img" alt="beef"/>
+            <article>
+                <p>This is a description for a recipe.</p>
+                <div class="recipe-icons">
+                <article>
+                    <i class="fas fa-clock"></i>
+                    <h5>Prep Time</h5>
+                    <p>30 min.</p>
+                </article>
 
-            <a href="./Recipe.html" class="Recipe">
-                <img src="../Asset Folder/Authentic-Carne-Asada_Square-1.jpg"
-                alt="food"
-                class="img recipe-img"/>
+                <article>
+                    <i class="far fa-clock"></i>
+                    <h5>Cook Time</h5>
+                    <p>30 min.</p>
+                </article>
+
+                <article>
+                    <i class="fas fa-user-friends"></i>
+                    <h5>Servings</h5>
+                    <p>4-5</p>
+                </article>
+                </div>
                 
-                <h5> Carne Asada</h5>
-                <p> Prep : 15min | Cook : 5min</p>
-            </a>
-            
-            
-            <a href="./Recipe.html" class="Recipe">
-                <img src="../Asset Folder/Roasted-Vegetable-Soup-square-FS-9348.jpg"
-                alt="food"
-                class="img recipe-img"/>
-                
-                <h5> Vegetable Soup</h5>
-                <p> Prep : 15min | Cook : 5min</p>
-            </a>
-            
-            
-            <a href="./Recipe.html" class="Recipe">
-                <img src="../Asset Folder/banana_pancakes_0-1328410.jpg"
-                alt="food"
-                class="img recipe-img"/>
-                
-                <h5> Bannana Pancakes</h5>
-                <p> Prep : 15min | Cook : 5min</p>
-            </a>
-            
-            
-            <a href="./Recipe.html" class="Recipe">
-                <img src="../Asset Folder/Barbecue-Ribs-Recipe-7.jpg"
-                alt="food"
-                class="img recipe-img"/>
-                
-                <h5> Barbecue Ribs</h5>
-                <p> Prep : 15min | Cook : 5min</p>
-            </a>
-            </div>
+                <div class="recipe-tags">
+                    Tags : <a href="./TagTemplate.html">Beef</a>
+                    <a href="./TagTemplate.html">Food</a>
+                </div>
+
+            </article>
+            </section>
+            <section class="recipe-content">
+                <article>
+                    <h4>Instructions</h4>
+                    <div class="single-instruction">
+                        <header>
+                            <p>Step 1</p>
+                            <div></div>
+                        </header>
+                        <p>This is the first instruction for the recipe</p>
+                    </div>
+                    <div class="single-instruction">
+                        <header>
+                            <p>Step 2</p>
+                            <div></div>
+                        </header>
+                        <p>This is the second instruction for the recipe</p>
+                    </div>
+                    <div class="single-instruction">
+                        <header>
+                            <p>Step 3</p>
+                            <div></div>
+                        </header>
+                        <p>This is the 3rd instruction for the recipe</p>
+                    </div>
+                </article>
+                <article class="ingredients-column">
+                    <div>
+                        <h4>Ingredients</h4>
+                        <p class="single-ingredient">1 whole cow</p>
+                        <p class="single-ingredient">Salt</p>
+                        <p class="single-ingredient">Black Powder</p>
+                    </div>
+                    
+                    <div>
+                        <h4>Tools</h4>
+                        <p class="single-tool">A Knife</p>
+                        <p class="single-tool">Fire</p>
+                        <p class="single-tool">Plate</p>
+                    </div>
+
+                </article>
+            </section>
+        </div>
     </body>
     <Footer>
         <div id="Footer">

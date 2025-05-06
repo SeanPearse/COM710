@@ -122,10 +122,8 @@ button{
     #Footer{
         background-color:rgb(92, 92, 212); ;
     }
-    .Recipe p{
-    color: white;
-    }
-    .Recipe h5{
+  
+    .card .header h5{
         color: white;
     }
     .tags-list a{
@@ -139,7 +137,9 @@ button{
         color: white;
     }
 
-  
+    .card .body{
+        color: white;
+      }
 }
 #DarkMode{
     position: absolute;
@@ -190,6 +190,14 @@ ul li a i{
     width: 40px;
     text-align: centre;
 }
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card .body{
+    color: black;
+  }
 .toggle{
     margin-top: 300px;
     margin-left: 15px;
@@ -268,6 +276,88 @@ input:checked ~ .slide{
     margin-top: 300px;
     font-family: 'Poppins' ,sans-serif;
 }
+.hide{
+    display: none ;
+}
+@media screen and (min-width: 768px) and (max-width: 997px) {
+    /* Layout adjustments */
+    .recipes-container {
+        display: block;
+        padding: 0 20px;
+    }
+    #ProfileImage{
+        margin-top: 40%;
+        margin-left: 15px;
+    }
+    
+    #LogoImage{
+        margin-top: 7%;
+        margin-left: -20px;
+    }
+
+    #DarkMode{
+        margin-top: 30%;
+       }
+       .toggle{
+        margin-top: 40%;
+       }
+
+    .tags-list {
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .user-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .recipe-img {
+        height: 12rem;
+    }
+
+    #LogoImage img {
+        width: 180px;
+    }
+
+    #ProfileImage img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .search-container {
+        max-width: 90%;
+        margin: 10px auto;
+    }
+
+    .search-input,
+    .search-button {
+        font-size: 15px;
+    }
+
+    .slide {
+        width: 160px;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+
+    .recipe-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .recipe-hero-img {
+        height: 400px;
+    }
+
+    .content {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
 
 @media screen and (min-width: 998px) {
 
@@ -292,10 +382,10 @@ input:checked ~ .slide{
    font-weight: bolder;
 }
 .recipes-list{
-    display: grid;
-    gap: 2rem 1rem;
-    padding-bottom: 3rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: block; 
+    max-width: none;
+    padding: 0;
+    margin: 0 auto;
 }
 .tags-container h4{
     margin-bottom: 0.5rem;
@@ -321,7 +411,10 @@ input:checked ~ .slide{
     border-radius: 1rem;
     margin-top: 50px;
 }
-.Recipe h5{
+.card .header{
+    text-align: center;
+}
+.card .header h5{
     margin-bottom: 0;
     line-height: 1;
     color: black;
@@ -337,6 +430,20 @@ input:checked ~ .slide{
 }
 
 }
+
+.user-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.card:hover {
+    transform: scale(1.03); 
+}
+
 
 a{
     text-decoration: none;
@@ -589,11 +696,24 @@ a{
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .search-container {
         margin-top: -3px;
-        width: 90%;  /* Take up 90% of the screen width */
+        width: 90%;  
 
+    }
+    .card .header h5{
+        margin-bottom: 0;
+        line-height: 1;
+        color: black;
+        font-family: 'Poppins' ,sans-serif;
+        font-size: 20px;
+    }
+    .user-cards {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 40px 5%;
     }
     .tags-container h4{
         font-family:'Poppins' ,sans-serif;
@@ -601,7 +721,7 @@ a{
      }
 
     .search-input {
-        font-size: 14px;  /* Adjust font size for mobile */
+        font-size: 14px;  
     }
 
     .search-button {
@@ -609,9 +729,9 @@ a{
         padding: 10px 15px;
     }
     #LogoImage img {
-        width: 150px; /* Resize logo for small screens */
+        width: 150px; 
     }
-       /* Adjust profile image size */
+       
        #ProfileImage img {
         width: 20px;
         height: 20px;
@@ -650,9 +770,10 @@ a{
     padding-bottom: 3rem;
 }
 .recipes-list{
-    display: grid;
-    gap: 2rem 1rem;
-    padding-bottom: 3rem;
+    display: block; 
+    max-width: none;
+    padding: 0;
+    margin: 0 auto;
 }
 .tags-container h4{
     margin-bottom: 0.5rem;
@@ -677,19 +798,7 @@ a{
     border-radius: 1rem;
     margin-top: 50px;
 }
-.Recipe h5{
-    margin-bottom: 0;
-    line-height: 1;
-    color: black;
-    font-family: 'Poppins' ,sans-serif;
-}
-.Recipe p{
-    margin-bottom: 0;
-    line-height: 1;
-    margin-top: 0.5rem;
-    color: black;
-    font-family: 'Poppins' ,sans-serif;
-}
+
 .content .page-title {
     margin-left: 20%;
 }

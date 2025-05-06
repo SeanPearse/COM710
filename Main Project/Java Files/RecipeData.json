@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Carne Asada",
+      "tags": "Beef, Food",
+      "img": "../Asset Folder/Authentic-Carne-Asada_Square-1.jpg",
+      "link": "../HTML Files/BeefRecipe.html"
+    },
+    {
+      "id": 2,
+      "name": "Vegetable Soup",
+      "tags": "Carrots, Food",
+      "img": "../Asset Folder/Roasted-Vegetable-Soup-square-FS-9348.jpg",
+      "link": "../HTML Files/VegetableSoupRecipe.html"
+    },
+    {
+      "id": 3,
+      "name": "Banana Pancakes",
+      "tags": "Breakfast, Food",
+      "img": "../Asset Folder/banana_pancakes_0-1328410.jpg",
+      "link": "../HTML Files/BananaRecipe.html"
+    },
+    {
+      "id": 4,
+      "name": "BBQ Ribs",
+      "tags": "Food",
+      "img": "../Asset Folder/Barbecue-Ribs-Recipe-7.jpg",
+      "link": "../HTML Files/BBQRibsRecipe.html"
+    }
+]

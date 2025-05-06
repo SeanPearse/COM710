@@ -10,15 +10,15 @@ $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'phplogin';
-// Try and connect using the info above
+
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-// Ensure there are no connection errors
+
 if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
-// We don't have the email or registered info stored in sessions so instead we can get the results from the database
+
 $stmt = $con->prepare('SELECT email, registered FROM accounts WHERE id = ?');
-// In this case, we can use the account ID to get the account info
+
 $stmt->bind_param('i', $_SESSION['account_id']);
 $stmt->execute();
 $stmt->bind_result($email, $registered);
@@ -66,7 +66,7 @@ $stmt->close();
                 <div class="slide">
                    <h1>Menu</h1>
                    <ul>
-                        <li><a href="#"><i class="fas fa-tv"></i>Home</a></li>
+                   <li><a href="#"><a href="./MainPage.html"><i class="fas fa-tv"></i>Home</a></a></li>
                         <li><a href="#"><i class="fas fa-heart"></i>Favourites</a></li>
                         <li><a href="#"><i class="fas fa-search"></i>Recipes</a></li>
                         <li><a href="#"><i class="fas fa-comments"></i>Comments</a></li>
