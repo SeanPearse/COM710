@@ -47,7 +47,7 @@ $stmt->close();
                 </button>
             </div>    
             <div id="LogoImage">
-                <td><a href="MainPage.html"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" height="200px"></a></td>
+                <td><a href="MainPage.php"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" height="200px"></a></td>
             </div>
             <div id="ProfileImage">
                 <button id="ProfileButton"><a href="LoginPage.php"><img class="ProfileImageScale" src="../Asset Folder/blank-profile-picture-973460_1280.png" height="50px" width="50px"></a> </button>
@@ -66,7 +66,7 @@ $stmt->close();
                 <div class="slide">
                    <h1>Menu</h1>
                    <ul>
-                   <li><a href="#"><a href="./MainPage.html"><i class="fas fa-tv"></i>Home</a></a></li>
+                   <li><a href="#"><a href="./MainPage.php"><i class="fas fa-tv"></i>Home</a></a></li>
                         <li><a href="#"><i class="fas fa-heart"></i>Favourites</a></li>
                         <li><a href="#"><i class="fas fa-search"></i>Recipes</a></li>
                         <li><a href="#"><i class="fas fa-comments"></i>Comments</a></li>
@@ -122,7 +122,7 @@ $stmt->close();
         <div id="Footer">
             <p>
             <div id="LogoImageFooter">
-                <td><a href="MainPage.html"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" height="200px"></a></td>
+                <td><a href="MainPage.php"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" height="200px"></a></td>
             </div>
                 <div id="Footer-Text">
                 Created by Sean Pearse

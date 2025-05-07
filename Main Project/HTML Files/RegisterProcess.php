@@ -1,91 +1,64 @@
 <?php
+session_start();
+include("Config.php");
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'phplogin';
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
+    // Sanitize and trim input data
+    $username = trim(htmlspecialchars($_POST["username"]));
+    $email = trim(htmlspecialchars($_POST["email"]));
+    $password = trim($_POST["password"]);
 
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-
-if (mysqli_connect_errno()) {
-
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-
-if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
-
-	exit('Please complete the registration form!');
-}
-
-if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
-
-	exit('Please complete the registration form');
-}
-
-if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-	exit('Email is not valid!');
-}
-
-if (preg_match('/^[a-zA-Z0-9]+$/', $_POST['username']) == 0) {
-	exit('Username is not valid!');
-}
-
-if (strlen($_POST['password']) > 20 || strlen($_POST['password']) < 5) {
-	exit('Password must be between 5 and 20 characters long!');
-}
-
-if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
-
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();
-	
-	$stmt->store_result();
-
-	if ($stmt->num_rows > 0) {
-	
-		echo 'Username already exists! Please choose another!';
-	} else {
-
-
-       
-        $registered = date('Y-m-d H:i:s');
-       
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        
-        if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, registered, activation_code) VALUES (?, ?, ?, ?, ?)')) {
-	   
-        $uniqid = sha1($_POST['username'] . uniqid());
-        $stmt->bind_param('sssss', $_POST['username'], $password, $_POST['email'], $registered, $uniqid);
-
-	    $stmt->execute();
-	   
-        $from = 'noreply@example.com';
-       
-        $subject = 'Account Activation Required';
-      
-        $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-        
-        $activate_link = 'https://example.com/phplogin/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
-       
-        $message = '<p>Please click the following link to activate your account: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
-       
-        mail($_POST['email'], $subject, $message, $headers);
-      
-        echo 'Please check your email to activate your account!';
-        } else {
-	    
-	    echo 'Could not prepare statement!';
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION["register_error"] = "Invalid email format.";
+        $_SESSION["active_form"] = "register";
+        header("Location: LoginPage.php");
+        exit();
     }
 
+    // Password length check
+    if (strlen($password) < 8) {
+        $_SESSION["register_error"] = "Password must be at least 8 characters long.";
+        $_SESSION["active_form"] = "register";
+        header("Location: LoginPage.php");
+        exit();
+    }
+
+    // Hash the password for secure storage
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Check if username or email already exists
+    $check_query = "SELECT * FROM accounts WHERE username = ? OR email = ?";
+    $stmt = $conn->prepare($check_query);
+    $stmt->bind_param("ss", $username, $email);
+    $stmt->execute();
+    $check_result = $stmt->get_result();
+
+    if ($check_result->num_rows > 0) {
+        $_SESSION["register_error"] = "Username or Email already exists.";
+        $_SESSION["active_form"] = "register";
+        header("Location: LoginPage.php");
+        exit();
+    }
+
+    // Insert the new user into the database
+    $registered = date("Y-m-d H:i:s");
+    $insert_query = "INSERT INTO accounts (username, email, password, registered) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($insert_query);
+    $stmt->bind_param("ssss", $username, $email, $hashedPassword, $registered);
+
+    if ($stmt->execute()) {
+        $_SESSION["username"] = $username;
+        header("Location: Profile.php");
+        exit();
+    } else {
+        // Log the error for debugging
+        error_log("Error: " . $stmt->error); 
         
-
-	        }
-	
-	$stmt->close();
-} else {
-	
-	echo 'Could not prepare statement!';
+        $_SESSION["register_error"] = "An error occurred during registration. Please try again later.";
+        $_SESSION["active_form"] = "register";
+        header("Location: LoginPage.php");
+        exit();
+    }
 }
-
-$con->close();
 ?>
