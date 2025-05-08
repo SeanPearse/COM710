@@ -19,6 +19,13 @@ foreach ($recipes as $r) {
 if (!$recipe) {
     die('Recipe not found.');
 }
+
+$isLoggedIn = isset($_SESSION["account_id"]);
+$liked = $isLoggedIn && isset($recipe["likes"]["users"]) && in_array($_SESSION["account_id"], $recipe["likes"]["users"]);
+
+$commentsFile = '../Java Files/comments.json';
+$allComments = file_exists($commentsFile) ? json_decode(file_get_contents($commentsFile), true) : [];
+$recipeComments = array_values(array_filter($allComments, fn($c) => $c['recipe_id'] == $recipe_id));
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +38,8 @@ if (!$recipe) {
   <script src="../Java Files/MainJavaFile.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body data-user-id="<?= $_SESSION['account_id'] ?? '' ?>" data-recipe-id="<?= $recipe_id ?>">
+
   <div id="Banner-Box">
     <div class="search-container">
       <input type="text" class="search-input" placeholder="Search..." />
@@ -60,16 +68,16 @@ if (!$recipe) {
       <div class="slide">
         <h1>Menu</h1>
         <ul>
-          <li><a href="./MainPage.php"><i class="fas fa-tv"></i> Home</a></li>
-          <li><a href="#"><i class="fas fa-heart"></i> Favourites</a></li>
-          <li><a href="#"><i class="fas fa-search"></i> Recipes</a></li>
-          <li><a href="#"><i class="fas fa-comments"></i> Comments</a></li>
+        <li><a href="./MainPage.php"><i class="fas fa-tv"></i> Home</a></li>
+          <li><a href="LikedRecipes.php"><i class="fas fa-heart"></i> Favourites</a></li>
+          <li><a href="MyRecipes.php"><i class="fas fa-utensils"></i> My Recipes</a></li>
+          <li><a href="MyComments.php"><i class="fas fa-comments"></i> Comments</a></li>
         </ul>
       </div>
     </label>
   </div>
 
-  <div class="recipe-page">
+  <div class="recipe-page" id="recipe-container" data-recipe-id="<?= htmlspecialchars($recipe['id']) ?>">
     <section class="recipe-hero">
       <h2><?= htmlspecialchars($recipe['name']) ?></h2>
       <img src="<?= htmlspecialchars($recipe['img']) ?>" class="img recipe-hero-img" alt="food image" />
@@ -93,17 +101,26 @@ if (!$recipe) {
           </article>
         </div>
         <div class="recipe-tags">
-  Tags: 
-  <?php
-    $tags = explode(",", $recipe['tags']);
-    foreach ($tags as $tag) {
-        $tag = trim($tag);
-        echo "<a href='MainPage.php?tag=" . urlencode($tag) . "' class='tag-link'>" . htmlspecialchars($tag) . "</a> ";
-    }
-  ?>
-</div>
+          Tags:
+          <?php
+            $tags = explode(",", $recipe['tags']);
+            foreach ($tags as $tag) {
+                $tag = trim($tag);
+                echo "<a href='MainPage.php?tag=" . urlencode($tag) . "' class='tag-link'>" . htmlspecialchars($tag) . "</a> ";
+            }
+          ?>
 
-        <?php if (isset($_SESSION['account_id']) && $recipe['user_id'] == $_SESSION['account_id']): ?>
+          <br><br>
+          <?php if ($isLoggedIn): ?>
+            <button id="like-btn" data-recipe-id="<?= $recipe["id"] ?>">
+              <?= $liked ? "❤️ Liked" : "🤍 Like" ?> (<span id="like-count"><?= $recipe["likes"]["count"] ?? 0 ?></span>)
+            </button>
+          <?php else: ?>
+            <p><a href="LoginPage.php">Log in</a> to like this recipe.</p>
+          <?php endif; ?>
+        </div>
+
+        <?php if ($isLoggedIn && $recipe['user_id'] == $_SESSION['account_id']): ?>
           <form action="DeleteRecipe.php" method="post" onsubmit="return confirm('Are you sure?');">
             <input type="hidden" name="recipe_id" value="<?= htmlspecialchars($recipe['id']) ?>">
             <button type="submit">Delete Recipe</button>
@@ -115,7 +132,7 @@ if (!$recipe) {
     <section class="recipe-content">
       <article class="instructions-column">
         <h4>Instructions</h4>
-        <?php if (isset($recipe['instructions']) && is_array($recipe['instructions'])): ?>
+        <?php if (!empty($recipe['instructions'])): ?>
           <ul>
             <?php foreach ($recipe['instructions'] as $instruction): ?>
               <li><?= htmlspecialchars($instruction) ?></li>
@@ -129,7 +146,7 @@ if (!$recipe) {
       <article class="ingredients-column">
         <div class="ingredients-list">
           <h4>Ingredients</h4>
-          <?php if (isset($recipe['ingredients']) && is_array($recipe['ingredients'])): ?>
+          <?php if (!empty($recipe['ingredients'])): ?>
             <ul>
               <?php foreach ($recipe['ingredients'] as $ingredient): ?>
                 <li><?= htmlspecialchars($ingredient) ?></li>
@@ -141,7 +158,7 @@ if (!$recipe) {
         </div>
         <div class="tools-list">
           <h4>Tools</h4>
-          <?php if (isset($recipe['tools']) && is_array($recipe['tools'])): ?>
+          <?php if (!empty($recipe['tools'])): ?>
             <ul>
               <?php foreach ($recipe['tools'] as $tool): ?>
                 <li><?= htmlspecialchars($tool) ?></li>
@@ -153,7 +170,23 @@ if (!$recipe) {
         </div>
       </article>
     </section>
-  </div>
+
+    <!-- Moved this inside recipe-page -->
+    <div id="comments-section">
+      <h3>Comments</h3>
+      <div id="comment-list"></div>
+
+      <?php if ($isLoggedIn): ?>
+        <form id="comment-form">
+          <textarea name="comment_text" placeholder="Write a comment..." required></textarea>
+          <input type="hidden" name="recipe_id" value="<?= htmlspecialchars($recipe['id']) ?>"><br>
+          <button type="submit">Submit</button>
+        </form>
+      <?php else: ?>
+        <p><a href="Login.php">Log in</a> to write a comment.</p>
+      <?php endif; ?>
+    </div>
+  </div> <!-- END of .recipe-page -->
 
   <footer>
     <div id="Footer">
@@ -163,5 +196,6 @@ if (!$recipe) {
       <div id="Footer-Text">Created by Sean Pearse</div>
     </div>
   </footer>
+
 </body>
 </html>

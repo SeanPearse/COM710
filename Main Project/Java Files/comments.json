@@ -1,0 +1,26 @@
+[
+    {
+        "id": "c1a2b3",
+        "recipe_id": 1,
+        "user_id": 1,
+        "username": "Sean",
+        "comment_text": "This recipe is amazing!",
+        "timestamp": "2025-05-08 12:00:00"
+    },
+    {
+        "id": "c4d5e6",
+        "recipe_id": 2,
+        "user_id": 2,
+        "username": "Alex",
+        "comment_text": "Turned out great, added some chili flakes.",
+        "timestamp": "2025-05-08 13:15:42"
+    },
+    {
+        "id": "681cda741629e",
+        "recipe_id": 2,
+        "user_id": 26,
+        "username": "sean",
+        "comment_text": "This is a test comment",
+        "timestamp": "2025-05-08 18:23:16"
+    }
+]

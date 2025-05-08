@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap');
 
 body{
-    z-index: -1;
     background-color: #fffce9;
     transition: 0.5s ease;
 }
@@ -10,17 +9,16 @@ body{
     cursor: pointer;
     margin-right: 8px;
     text-transform: capitalize;
-    padding-top: 15px;
+    padding-top: 10px;
     color: #327da8;
     font-size: x-large;
+    padding-bottom: 10px;
 }
 .tag-link:hover {
     font-size: xx-large;
     transition: font-size 0.3s ease;
     background:#327da8;
-    ;
     color: white;
-    padding: 4px;
     border-radius: 5px;
   }
 
@@ -32,6 +30,60 @@ body{
  z-index: -1;
  transition: 0.5s ease;
 }
+#LikedTitle{
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: 'Poppins' ,sans-serif;
+    text-align: center;
+}
+
+.create-recipe-container{
+    text-align: center;
+    font-family: 'Poppins' ,sans-serif;
+}
+.create-recipe-container h2{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.create-recipe-container button{
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.create-recipe-container button:hover {
+    background-color: rgb(3, 221, 3);
+  }
+  .create-recipe-container textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+ .create-recipe-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border 0.3s ease;
+    max-width: 800px;
+  }
+  .create-recipe-container input{
+    margin-bottom: 50px
+  }
+  
+  .dark-mode .create-recipe-container button:hover {
+    background-color: #327da8;
+  }
+  .dark-mode .create-recipe-container button{
+    background-color: blue;
+  }
 
   
 
@@ -111,64 +163,64 @@ button{
 .dark-mode{
     background-color: rgb(32, 32, 32);
     color: white;
-    #Banner-Box{
-        background:rgb(92, 92, 212);
-    }
-    #Moon{
-        content: url(../Asset\ Folder/58f9fd580ed2bdaf7c128327.png);
-        height: 40px;
-        width: 40px;
-    }
-    .slide{
-        background-color: rgb(70, 70, 70);;
-    }
-    ul li a{
-        color: white;
-    }
-    ul li:hover a{
-        background-color: rgb(92, 92, 212);
-    }
-    .toggle{
-        background-color:rgb(4, 0, 255);
-    }
-    .search-button{
-        background-color: rgb(4, 0, 255);
-    }
-    .search-button:hover{
-        background-color: rgb(92, 92, 212); ;
-    }
-    .search-input{
-        background: rgb(92, 92, 92);
-        color: white;
-    }
-    #Footer{
-        background-color:rgb(92, 92, 212); ;
-    }
-  
-    .card .header h5{
-        color: white;
-    }
-
-    .form-box button{
-        background: rgb(45, 45, 236);
-    }
-    .form-box input{
-        background: rgb(92, 92, 92);
-        color: white;
-    }
-
-    .card .body{
-        color: white;
-      }
-      .Logout{
-        background-color: rgb(45, 45, 236);
-      }
-      
-      .CreateRecipe{
-        background-color: rgb(45, 45, 236);
-      }
       
 }
+.dark-mode #Moon{
+    content: url("../Asset Folder/58f9fd580ed2bdaf7c128327.png");
+    height: 40px;
+    width: 40px;
+}
+.dark-mode .slide{
+    background-color: rgb(70, 70, 70);;
+}
+.dark-mode ul li a{
+    color: white;
+}
+.dark-mode ul li:hover a{
+    background-color: #327da8;
+}
+.dark-mode .toggle{
+    background-color:rgb(4, 0, 255);
+}
+.dark-mode .search-button{
+    background-color: rgb(4, 0, 255);
+}
+.dark-mode .search-button:hover{
+    background-color:#327da8 ;
+}
+.dark-mode .search-input{
+    background: rgb(92, 92, 92);
+    color: white;
+}
+.dark-mode #Footer{
+    background-color:rgb(92, 92, 212); ;
+}
+
+.dark-mode .card .header h5{
+    color: white;
+}
+
+.dark-mode .form-box button{
+    background: rgb(45, 45, 236);
+}
+.dark-mode .form-box input{
+    background: rgb(92, 92, 92);
+    color: white;
+}
+
+.dark-mode .card .body{
+    color: white;
+  }
+  .dark-mode .Logout{
+    background-color: rgb(45, 45, 236);
+  }
+  
+  .dark-mode .CreateRecipe{
+    background-color: rgb(45, 45, 236);
+  }
+.dark-mode #Banner-Box {
+    background: rgb(92, 92, 212);
+  }
 #DarkMode{
     position: absolute;
     left: 80%;
@@ -284,26 +336,148 @@ input:checked ~ .slide{
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-#Footer{
-    margin-top: 100%;
+#Footer {
     background: #cde6a9;
     width: 100%;
-    height: 35vh;
-    z-index: 1;
-    transition: 0.5s ease;
-}
-#LogoImageFooter{
-    margin-top: 10px;
-    position: absolute;
-    z-index: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #comment-list {
+  margin-top: 20px;
+  }
+  
+  .comment {
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+  max-width: 800px;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  
+  .comment-user {
+    font-weight: 600;
+  }
+  
+  .comment-text {
+    font-size: 1rem;
+  }
 
- }
+  #comment-form button{
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
 
-#Footer-Text{
-    position: absolute;
-    margin-top: 300px;
-    font-family: 'Poppins' ,sans-serif;
+  #comment-form button:hover {
+    background-color: rgb(3, 221, 3);
+  }
+
+  #comment-form textarea {
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
 }
+.dark-mode #comment-form textarea::placeholder {
+    color: white;
+}
+
+
+
+
+#Footer-Text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+body.dark-mode #comment-form button {
+background-color: blue;
+}
+.dark-mode #comment-form button:hover {
+background-color: #327da8;
+}
+
+.comment .delete-comment {
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    width: 100px;
+    margin-top: 20px;
+}
+
+.comment-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+ 
+  
+  .comment-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+  }
+  
+  .comment-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  .comment-card .comment-meta {
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  .comment-container {
+    display: flex; /* Or just ensure it's block-level */
+    flex-direction: column; /* This makes the cards stack vertically */
+    gap: 10px; /* Space between each card */
+    width: 100%; /* Ensure container takes up full width */
+}
+.comments-container{
+    padding: 2rem; max-width: 800px; margin: auto;
+}
+.dark-mode .comment .delete-comment {
+    background-color: blue;
+}
+
+.dark-mode #comment-form textarea {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: lightslategray;
+}
+
+.dark-mode .comment button:hover {
+    background-color: #327da8;
+}
+
+  
+
+
 .hide{
     display: none ;
 }
@@ -738,7 +912,6 @@ a{
 .content .block p {
     padding: 7px;
     margin: 0;
-    font-family: 'Poppins' ,sans-serif;
 }
 .content .profile-detail {
     display: flex;
@@ -755,95 +928,155 @@ a{
     font-family: 'Poppins' ,sans-serif;
 }
 
-
-@media (max-width: 767px) {
-    .search-container {
-        margin-top: -3px;
-        width: 90%;  
-
-    }
-    .card .header h5{
-        margin-bottom: 0;
-        line-height: 1;
-        color: black;
-        font-family: 'Poppins' ,sans-serif;
-        font-size: 20px;
-    }
-    .user-cards {
-        display: grid;
-        grid-template-columns: 1fr; 
-        gap: 20px;
-        padding: 40px 5%;
-    }
- 
-    .search-input {
-        font-size: 14px;  
-    }
-
-    .search-button {
+@media screen and (max-width: 767px) {
+    body {
         font-size: 14px;
-        padding: 10px 15px;
     }
+
+    #Banner-Box {
+        height: auto;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
     #LogoImage img {
-        width: 150px; 
+        width: 150px;
     }
-       
-       #ProfileImage img {
-        width: 20px;
-        height: 20px;
-       
+
+    #DarkMode {
+        left: 70%;
+        margin-top: -70px;
     }
-    #ProfileImage{
-        margin-top: 57%;
-        margin-left: 15px;
+
+    #ProfileImage {
+        left: auto;
+        right: 10px;
+        top: 10px;
     }
-    #LogoImage{
-        margin-top: 5%;
-        margin-left: -20px;
+
+    .search-container {
+        flex-direction: column;
+        max-width: 90%;
+        padding: 10px;
+        box-shadow: none;
     }
-   .toggle{
-    margin-top: 55%;
-   }
-   #DarkMode{
-    margin-top: 42%;
-   }
-   #DarkMode img{
-    width: 35px;
-    height: 35px;
-   }
-   .slide{
-   top: 160px;
-   }
-   .recipes-container{
-    display: grid;
-    gap: 2rem 1rem;
-    text-align: center;
-}
 
-.recipes-list{
-    display: block; 
-    max-width: none;
-    padding: 0;
-    margin: 0 auto;
-}
+    .search-input,
+    .search-button {
+        border-radius: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .user-cards {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .recipe-img {
+        height: 10rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .card h2[data-header] {
+        font-size: 1.25rem;
+    }
+
+    .card p[data-body] {
+        font-size: 0.95rem;
+    }
+
+    .recipe-hero-img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .recipe-content {
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .recipe-icons {
+        grid-template-columns: 1fr;
+    }
+
+    .slide {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 10px;
+        position: static;
+        transform: none !important;
+        background-color: #fffce9;
+        box-shadow: none;
+    }
+
+    .toggle {
+        margin-top: 10px;
+        margin-left: 10px;
+        top: 10px;
+        left: 10px;
+    }
 
 
 
-.Recipe{
-    display: block;
-}
-.recipe-img{
-    height: 15rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    margin-top: 50px;
-}
+    #LogoImageFooter {
+        position: static;
+        display: block;
+        margin: 0 auto;
+    }
 
-.content .page-title {
-    margin-left: 20%;
-}
-.content .block {
-    margin-right: 35%;
-}
+   
 
+    .form-box {
+        padding: 15px;
+    }
+
+    .CreateRecipe,
+    .Logout {
+        margin: 20px auto;
+        width: 80%;
+    }
+
+    .content,
+    .header .wrapper {
+        width: 100%;
+        padding: 0 10px;
+        margin: 0 auto;
+    }
+
+    .content .page-title {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    #tag-filter {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tag-link {
+        font-size: 1rem;
+        margin: 4px;
+    }
+
+    .recipe-tags {
+        justify-content: center;
+    }
+
+    .instructions-column h4,
+    .ingredients-list h4,
+    .tools-list h4 {
+        font-size: 1.2rem;
+    }
+
+    .instructions-column li,
+    .ingredients-list li,
+    .tools-list li {
+        font-size: 0.95rem;
+    }
 }

@@ -72,10 +72,10 @@ if (isset($_SESSION['account_loggedin']) && $_SESSION['account_loggedin'] === TR
       <nav class="slide">
         <h1>Menu</h1>
         <ul>
-          <li><a href="./MainPage.php"><i class="fas fa-tv"></i> Home</a></li>
-          <li><a href="#"><i class="fas fa-heart"></i> Favourites</a></li>
-          <li><a href="#"><i class="fas fa-search"></i> Recipes</a></li>
-          <li><a href="#"><i class="fas fa-comments"></i> Comments</a></li>
+        <li><a href="./MainPage.php"><i class="fas fa-tv"></i> Home</a></li>
+          <li><a href="LikedRecipes.php"><i class="fas fa-heart"></i> Favourites</a></li>
+          <li><a href="MyRecipes.php"><i class="fas fa-utensils"></i> My Recipes</a></li>
+          <li><a href="MyComments.php"><i class="fas fa-comments"></i> Comments</a></li>
         </ul>
       </nav>
     </label>

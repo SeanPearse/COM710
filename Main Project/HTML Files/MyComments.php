@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['account_loggedin']) || !isset($_SESSION['account_id'])) {
+    header('Location: LoginPage.php');
+    exit;
+}
+
+$userId = $_SESSION['account_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +18,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="../Java Files/MainJavaFile.js" defer></script>
 </head>
-<body>
+<body data-user-id="<?= $userId ?>">
+
 
   <!-- Banner -->
   <header id="Banner-Box">
@@ -54,35 +65,21 @@
     </label>
   </header>
 
-  <section class="recipes-container">
-  <div class="tag-filter">
-    <h4>Filter by Tag</h4>
-    <div class="tags-list" id="tag-filter"></div>
+<!-- Title -->
+<h2 style="text-align: center; margin-top: 40px;">Your Comments</h2>
+
+<!-- Comments Container -->
+<section class="comments-container">
+  <div id="user-comments"></div>
+</section>
+
+<!-- Footer -->
+<footer id="Footer">
+  <div id="LogoImageFooter">
+    <a href="MainPage.php"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" height="200px" alt="Main Logo"></a>
   </div>
-
-  <div class="user-cards" data-user-cards-container></div>
-</section> <!-- ✅ Properly closes section here -->
-
-<template data-user-template>
-  <a href="#" class="card-link" data-link>
-    <div class="card">
-      <h2 data-header></h2>
-      <p data-body></p>
-      <img data-img src="" alt="food" class="img recipe-img" />
-    </div>
-  </a>
-</template>
-
-
-
-
-  <!-- Footer -->
-  <footer id="Footer">
-    <div id="LogoImageFooter">
-      <a href="MainPage.php"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" alt="Footer Logo" height="200px" /></a>
-    </div>
-    <div id="Footer-Text">Created by Sean Pearse</div>
-  </footer>
+  <div id="Footer-Text">Created by Sean Pearse</div>
+</footer>
 
 </body>
 </html>

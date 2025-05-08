@@ -1,15 +1,37 @@
+<?php
+session_start();
+if (!isset($_SESSION['account_id'])) {
+    header("Location: LoginPage.php");
+    exit;
+}
+
+$account_id = $_SESSION['account_id'];
+$recipes = json_decode(file_get_contents('../Java Files/RecipeData.json'), true);
+
+// Filter recipes created by the current user and add 'link' to each recipe
+$userRecipes = array_values(array_filter($recipes, fn($r) => isset($r['user_id']) && $r['user_id'] == $account_id));
+foreach ($userRecipes as &$recipe) {
+    $recipe['link'] = "Recipe.php"; // ✅
+
+}
+unset($recipe);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
-  <link rel="stylesheet" href="../Style Sheets/MainStyleSheet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <title>My Recipes</title>
+  <link rel="stylesheet" href="../Style Sheets/MainStyleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Pass user's recipes to JS -->
+  <script>
+    const myRecipesData = <?php echo json_encode($userRecipes); ?>;
+  </script>
   <script src="../Java Files/MainJavaFile.js" defer></script>
 </head>
-<body>
 
+<body>
   <!-- Banner -->
   <header id="Banner-Box">
     <div class="search-container">
@@ -50,20 +72,24 @@
           <li><a href="MyRecipes.php"><i class="fas fa-utensils"></i> My Recipes</a></li>
           <li><a href="MyComments.php"><i class="fas fa-comments"></i> Comments</a></li>
         </ul>
+        </ul>
       </nav>
     </label>
   </header>
 
+  <div id="LikedTitle"><h2>Your Created Recipes</h2></div>
+
   <section class="recipes-container">
-  <div class="tag-filter">
-    <h4>Filter by Tag</h4>
-    <div class="tags-list" id="tag-filter"></div>
-  </div>
+    <div class="tag-filter">
+      <h4>Filter by Tag</h4>
+      <div class="tags-list" id="tag-filter"></div>
+    </div>
 
-  <div class="user-cards" data-user-cards-container></div>
-</section> <!-- ✅ Properly closes section here -->
+    <div class="user-cards" data-user-cards-container></div>
+  </section>
 
-<template data-user-template>
+  <!-- Template for recipe card -->
+  <template data-user-template>
   <a href="#" class="card-link" data-link>
     <div class="card">
       <h2 data-header></h2>
@@ -74,15 +100,11 @@
 </template>
 
 
-
-
-  <!-- Footer -->
   <footer id="Footer">
     <div id="LogoImageFooter">
       <a href="MainPage.php"><img class="MainImageScale" src="../Asset Folder/Main Logo Website.png" alt="Footer Logo" height="200px" /></a>
     </div>
     <div id="Footer-Text">Created by Sean Pearse</div>
   </footer>
-
 </body>
 </html>
