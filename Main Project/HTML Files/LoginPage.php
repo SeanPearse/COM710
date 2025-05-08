@@ -7,7 +7,9 @@ $errors = [
 ];
 $activeForm = $_SESSION['active_form'] ?? 'login';
 
-session_unset();
+// Clear specific session messages after displaying them
+unset($_SESSION['login_error'], $_SESSION['register_error'], $_SESSION['active_form']);
+
 
 function showError($error) {
     return !empty($error) ? "<p class='error-message'>$error</p>" : '';
@@ -84,15 +86,15 @@ if (isset($_SESSION['account_loggedin']) && $_SESSION['account_loggedin'] === TR
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
             <h2>Login</h2>
             <?= showError($errors['login']); ?>
-            <form action="Config.php" method="post">
+            <form action="LoginProcess.php" method="post">
                 <img src="../Asset Folder/blank-profile-picture-973460_1280.png" height="300px" class="login-img" />
                 
                 <!-- Username Input -->
-                <label for="login-username">Username</label>
+                <label for="login-username"><h3>Username</h3></label>
                 <input class="form-input" type="text" name="username" placeholder="Username" id="login-username" required />
 
                 <!-- Password Input -->
-                <label for="login-password">Password</label>
+                <label for="login-password"><h3>Password</h3></label>
                 <input class="form-input" type="password" name="password" placeholder="Password" id="login-password" required />
 
                 <!-- Login Button -->
@@ -109,15 +111,15 @@ if (isset($_SESSION['account_loggedin']) && $_SESSION['account_loggedin'] === TR
                 <img src="../Asset Folder/blank-profile-picture-973460_1280.png" height="300px" class="login-img" />
                 
                 <!-- Username Input -->
-                <label for="register-username">Username</label>
+                <label for="register-username"><h3>Username</h3></label>
                 <input class="form-input" type="text" name="username" placeholder="Username" id="register-username" required />
 
                 <!-- Email Input -->
-                <label for="register-email">Email</label>
+                <label for="register-email"><h3>Email</h3></label>
                 <input class="form-input" type="email" name="email" placeholder="Email" id="register-email" required />
 
                 <!-- Password Input -->
-                <label for="register-password">Password</label>
+                <label for="register-password"><h3>Password</h3></label>
                 <input class="form-input" type="password" name="password" placeholder="Password" id="register-password" autocomplete="new-password" required />
 
                 <!-- Register Button -->
