@@ -160,6 +160,14 @@ button{
     .card .body{
         color: white;
       }
+      .Logout{
+        background-color: rgb(45, 45, 236);
+      }
+      
+      .CreateRecipe{
+        background-color: rgb(45, 45, 236);
+      }
+      
 }
 #DarkMode{
     position: absolute;
@@ -554,9 +562,7 @@ a{
     font-family: 'Poppins' ,sans-serif;
 }
 .recipe-tags a{
-    background-color: rgb(37, 65, 226);
     border-radius: 5px;
-    color: white;
     padding: 0.05rem 0.5rem;
     margin: 0 0.25rem;
     text-transform: capitalize;
@@ -567,35 +573,58 @@ a{
     gap: 2rem 5rem;
     font-family: 'Poppins' ,sans-serif;
 }
-.single-instruction header{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: center;
+.instructions-column h4{
+    font-size: xx-large;
+    font-weight: bolder;
 }
-.single-instruction header div{
-    height: 2px;
-    background: lightgray;
-}
-.single-instruction header p{
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 0;
-}
-.ingredients-column{
-    display: grid;
-    row-gap: 2rem;
-}
-.single-ingredient{
+.instructions-column li{
     border-bottom: 2px solid lightgrey;
     padding-bottom: 0.75rem;
     text-transform: capitalize;
+    margin-top: 20px;
 }
-.single-tool{
+
+.ingredients-list li{
     border-bottom: 2px solid lightgrey;
     padding-bottom: 0.75rem;
     text-transform: capitalize;
+    margin-top: 20px;
 }
+.ingredients-list h4{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.tools-list h4{
+    font-size: xx-large;
+    font-weight: bolder;
+
+}
+
+.tools-list li{
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 0.75rem;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+.recipe-description{
+    font-family: 'Poppins' ,sans-serif;
+    padding-bottom: 2rem;
+}
+.recipe-icons{
+    font-family: 'Poppins' ,sans-serif;
+    padding-bottom: 2rem;
+}
+.card h2[data-header] {
+    font-family: 'Poppins' ,sans-serif;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.card p[data-body] {
+    font-family: 'Poppins' ,sans-serif;
+}
+
+
+
 
 .error-message {
     padding: 12px;
@@ -616,6 +645,20 @@ a{
 }
 .Logout h2{
     text-align: center;
+    color: white
+}
+.CreateRecipe{
+    background: green;
+    border-radius: 5px;
+    background-size: contain;
+    padding: 0.05rem;
+    margin: 30%;
+    margin-top: 50px;
+}
+.CreateRecipe h2{
+    text-align: center;
+        color: white;
+    
 }
 
 .header .wrapper {
