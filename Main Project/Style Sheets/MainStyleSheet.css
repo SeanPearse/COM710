@@ -6,6 +6,24 @@ body{
     transition: 0.5s ease;
 }
 
+.tag-link{
+    cursor: pointer;
+    margin-right: 8px;
+    text-transform: capitalize;
+    padding-top: 15px;
+    color: #327da8;
+    font-size: x-large;
+}
+.tag-link:hover {
+    font-size: xx-large;
+    transition: font-size 0.3s ease;
+    background:#327da8;
+    ;
+    color: white;
+    padding: 4px;
+    border-radius: 5px;
+  }
+
 #Banner-Box{
     padding: 25px;
   background: #cde6a9;
@@ -14,6 +32,8 @@ body{
  z-index: -1;
  transition: 0.5s ease;
 }
+
+  
 
 #LogoImage{
    position: absolute;
@@ -72,6 +92,7 @@ body{
 
 
 
+
 #ProfileImage{
     position: absolute;
     left: 90%;
@@ -127,9 +148,7 @@ button{
     .card .header h5{
         color: white;
     }
-    .tags-list a{
-        color: lightblue;
-    }
+
     .form-box button{
         background: rgb(45, 45, 236);
     }
@@ -303,9 +322,7 @@ input:checked ~ .slide{
         margin-top: 40%;
        }
 
-    .tags-list {
-        grid-template-columns: 1fr 1fr; 
-    }
+
 
     .user-cards {
         display: grid;
@@ -378,31 +395,8 @@ iner{
     flex-direction: column;
     padding-bottom: 3rem;
 }
-.tags-container h4{
-   font-family:'Poppins' ,sans-serif;
-   font-weight: bolder;
-}
-.recipes-list{
-    display: block; 
-    max-width: none;
-    padding: 0;
-    margin: 0 auto;
-}
-.tags-container h4{
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-family: 'Poppins' ,sans-serif;
-}
-.tags-list{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-.tags-list a{
-    text-transform: capitalize;
-    display: block;
-    font-family: 'Poppins' ,sans-serif; ;
-    padding-bottom: 10px;
-}
+
+
 .Recipe{
     display: block;
 }
@@ -656,6 +650,13 @@ a{
     margin-left: 38%;
     
 }
+#tag-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
 .content .page-title h2 {
     padding: 0 0 7px 0;
     font-size: 20px;
@@ -715,11 +716,7 @@ a{
         gap: 20px;
         padding: 40px 5%;
     }
-    .tags-container h4{
-        font-family:'Poppins' ,sans-serif;
-        font-weight: bolder;
-     }
-
+ 
     .search-input {
         font-size: 14px;  
     }
@@ -763,32 +760,16 @@ a{
     gap: 2rem 1rem;
     text-align: center;
 }
-.tags-container{
-    order: 1;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 3rem;
-}
+
 .recipes-list{
     display: block; 
     max-width: none;
     padding: 0;
     margin: 0 auto;
 }
-.tags-container h4{
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-.tags-list{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.tags-list a{
-    text-transform: capitalize;
-    display: block;
-    font-family: 'Poppins' ,sans-serif; ;
-    padding-bottom: 10px;
-}
+
+
+
 .Recipe{
     display: block;
 }

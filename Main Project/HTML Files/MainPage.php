@@ -54,36 +54,27 @@
     </label>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <section class="recipes-container">
-      <!-- Tag Filters -->
-      <div class="tags-container">
-        <h4>Recipes</h4>
-        <div class="tags-list" id="tags-list">
-          
-        </div>
-      </div>
+  <section class="recipes-container">
+  <div class="tag-filter">
+    <h4>Filter by Tag</h4>
+    <div class="tags-list" id="tag-filter"></div>
+  </div>
 
-      <!-- Recipe Cards -->
-      <div class="recipes-list">
-        <div class="user-cards" data-user-cards-container></div>
+  <div class="user-cards" data-user-cards-container></div>
+</section> <!-- ✅ Properly closes section here -->
 
-        <!-- Template for dynamic card generation -->
-        <template data-user-template>
-          <a href="#" class="card-link" data-link>
-            <div class="card">
-              <div class="header"><h5 data-header></h5></div>
-              <div class="img">
-                <img src="" alt="food" data-img class="img recipe-img" />
-              </div>
-              <div class="body" data-body></div>
-            </div>
-          </a>
-        </template>
-      </div>
-    </section>
-  </main>
+<template data-user-template>
+  <a href="#" class="card-link" data-link>
+    <div class="card">
+      <h2 data-header></h2>
+      <p data-body></p>
+      <img data-img src="" alt="food" class="img recipe-img" />
+    </div>
+  </a>
+</template>
+
+
+
 
   <!-- Footer -->
   <footer id="Footer">
